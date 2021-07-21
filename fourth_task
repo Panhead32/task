@@ -1,0 +1,16 @@
+const express = require('express')
+
+class Server {
+    constructor() {
+        this.app = express()
+
+        this.app.get('/hello', (req, res) => {
+            const name = req.query.name
+            res.send({"message": name+"!"})
+        })
+
+        this.app.listen(3000)
+    }
+}
+
+new Server()
